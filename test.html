@@ -80,14 +80,18 @@
     // 3. JavaScript: 重構
     // 直接移除判斷式，使程式更簡潔
     function formatName(firstName, lastName) {
-    let formattedName = ' ';
-    formattedName += firstName;
-    formattedName += ' ' + lastName;
-    return formattedName;
+      let formattedName = ' ';
+      formattedName += firstName;
+      formattedName += ' ' + lastName;
+      return formattedName;
     }
     console.log(formatName('YoYo','Lin'));
     
-      // 5. React: 組件
+   // 4 React: 條件渲染
+    function ConditionalRendering({ isLoggedIn }) {
+    // 實作你的條件渲染
+    }
+    // 5. React: 組件
       function App(props) {
         const [count, setCount] = React.useState(10);
 
