@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+ <body>
+<!-- 步驟一 : 載入 React, Babel -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<!-- 步驟三 : 加入 root 元素 -->
+<div id="root"></div>
+
+  <style>
+   body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    #counter {
+      display: inline-flex;
+      border: 3px solid #FDBA9A;
+      border-radius: 20px;
+      background-color: #FDBA9A;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, .18)
+    }
+
+    #counter button {
+      border: 0;
+      background-color: transparent;
+      color: #fff;
+      font-size: 24px;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      margin: 0;
+      outline: none;
+      display: inline-block;
+    }
+
+    #counter input[type="text"] {
+      height: 32px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      outline: none;
+      background-color: #fff;
+      display: inline-block;
+      appearance: none;
+      width: 60px;
+      text-align: center;
+      font-size: 22px;
+      border-radius: 2px;
+    }
+  </style>
+  <script type="text/babel">
+
+    // 1 JavaScript: 字串反轉
+    function reverseString(str) {
+    // 實作你的解答
+      return str.split('').reverse().join('');
+    }
+    console.log(reverseString("Hello")); // 預期輸出: "olleH”
+
+    //2 JavaScript: 陣列過濾
+    function filterNumbersGreaterThanFive(numbers) {
+    // 實作你的解答
+      return numbers > 5;
+    }
+    const numbers = [2, 8, 4, 10, 1, 7];
+    const filterNum = numbers.filter(filterNumbersGreaterThanFive);
+    console.log(filterNumbersGreaterThanFive(numbers)); // 預期輸出: [8, 10, 7]
+    console.log(filterNum);
+
+    // 3. JavaScript: 重構
+    // 直接移除判斷式，使程式更簡潔
+    function formatName(firstName, lastName) {
+    let formattedName = ' ';
+    formattedName += firstName;
+    formattedName += ' ' + lastName;
+    return formattedName;
+    }
+    console.log(formatName('YoYo','Lin'));
+    
+      // 5. React: 組件
+      function App(props) {
+        const [count, setCount] = React.useState(10);
+
+        function add() {
+            setCount(count + 1);
+        }
+
+        function reduce(){
+            setCount(count - 1);
+        }
+
+        function changeHandler(e) {
+            let newValue = parseInt(e.target.value)
+            if (!isNaN(newValue)) {
+            setCount(parseInt(e.target.value))
+            }
+        }
+        
+        return (
+          <div id="counter">
+            <button className="chevron-down"  style={{
+              visibility: count<=0 && 'hidden',
+            }} onClick={reduce}>-</button>
+            <input type="text" value={count} onChange={changeHandler} />
+            <button className="chevron-up" style={{
+            visibility: count >= 20 && 'hidden',
+          }}  onClick={add}>+</button>
+          </div>
+        )
+      }
+      
+      const el = <App />;
+      ReactDOM.render(
+      el,
+      document.getElementById('root')
+    );
+  </script>
+ </body>
+</html>
