@@ -88,10 +88,30 @@
     console.log(formatName('YoYo','Lin'));
     
    // 4 React: 條件渲染
+    <div id="root">
+      <h1>Your App</h1>
+          <ConditionalRendering isLoggedIn={userIsLoggedIn} />
+    </div>
     function ConditionalRendering({ isLoggedIn }) {
     // 實作你的條件渲染
+         return (
+            <div>
+              {isLoggedIn ? (
+                <p>Welcome, user!</p>
+              ) : (
+                <p>Please log in.</p>
+              )}
+            </div>
+          );
     }
+    ReactDOM.render(
+      < ConditionalRendering isLoggedIn={false} />,
+      document.getElementById('root')
+    );
+     
     // 5. React: 組件
+      <div id="root"></div>
+      
       function App(props) {
         const [count, setCount] = React.useState(10);
 
